@@ -37,9 +37,9 @@ const App = () => {
 
     setPosts(posts.map(postsData => {
        if ( postsData.id === postId ) {
-         return [...posts]
+         return {...postsData, likes: (postsData.likes +1)}
        } else {
-         return posts
+         return postsData
        }
     }));
 
@@ -51,7 +51,7 @@ const App = () => {
       {/* Check the implementation of each component, to see what props they require, if any! */}
       
     <SearchBar />
-    <Posts />
+    <Posts posts = {posts} likePost = {likePost} />
 
     </div>
   );
